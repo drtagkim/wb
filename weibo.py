@@ -91,7 +91,10 @@ class WbFeed:
             try:
                 self.action[line['action-type']]=reg_number.findall(line.text)[0].strip()
             except:
-                self.action[line['action-type']]='0'
+                self.action['feed_list_favorite']='0'
+                self.action['feed_list_forward']='0'
+                self.action['feed_list_comment']='0'
+                self.action['feed_list_like']='0'
 class Collector:
     def __init__(self,fname):
         self.df=pd.DataFrame()

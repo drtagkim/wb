@@ -7,8 +7,9 @@ class Combiner:
         files=glob(dir+"/*.xls")
         data=pd.DataFrame()
         for file in files:
-            a=pd.ExcelFile(file)
-            b=a.parse()
+            with open(file,'rb') as f:
+                a=pd.ExcelFile(f)
+                b=a.parse()
             data=data.append(b)
         data.to_excel(output)
 class ExcelOutput:
